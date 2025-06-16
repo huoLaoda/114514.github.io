@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古镇漫步 - 妖魔鬼怪快离开</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#7C3AED',
+                        accent: '#EC4899',
+                        neutral: '#1F2937',
+                        'neutral-light': '#F3F4F6',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.02);
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-neutral">
+    <!-- 顶部导航栏 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- 博客标题 -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary hover:text-secondary transition-colors">
+                        妖魔鬼怪快离开
+                    </a>
+                </div>
+                
+                <!-- 导航菜单 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-neutral hover:text-primary font-medium transition-colors">首页</a>
+                    <a href="article1.html" class="text-neutral hover:text-primary font-medium transition-colors">生活点滴</a>
+                    <a href="article2.html" class="text-neutral hover:text-primary font-medium transition-colors">旅行见闻</a>
+                    <a href="article3.html" class="text-neutral hover:text-primary font-medium transition-colors">读书笔记</a>
+                </nav>
+                
+                <!-- 作者信息卡片 -->
+                <div class="hidden md:flex items-center bg-primary/10 px-4 py-2 rounded-full">
+                    <span class="text-primary font-medium">王笑</span>
+                    <span class="mx-2 text-gray-400">|</span>
+                    <span class="text-gray-600">中南财经政法大学</span>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-neutral hover:text-primary focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 animate-fade-in">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="text-neutral hover:text-primary font-medium transition-colors">首页</a>
+                    <a href="article1.html" class="text-neutral hover:text-primary font-medium transition-colors">生活点滴</a>
+                    <a href="article2.html" class="text-neutral hover:text-primary font-medium transition-colors">旅行见闻</a>
+                    <a href="article3.html" class="text-neutral hover:text-primary font-medium transition-colors">读书笔记</a>
+                    <div class="bg-primary/10 px-4 py-2 rounded-full mt-2">
+                        <span class="text-primary font-medium">王笑</span>
+                        <span class="mx-2 text-gray-400">|</span>
+                        <span class="text-gray-600">中南财经政法大学</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- 文章内容 -->
+        <article class="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="h-64 md:h-80 overflow-hidden">
+                <img src="https://picsum.photos/seed/travel1/1200/800" alt="古镇漫步" class="w-full h-full object-cover">
+            </div>
+            <div class="p-8 md:p-12">
+                <h1 class="text-3xl md:text-4xl font-bold text-neutral mb-4">古镇漫步</h1>
+                <div class="flex items-center mb-6 text-gray-500">
+                    <span><i class="fa fa-calendar-o mr-2"></i>2025年5月20日</span>
+                    <span class="mx-4">•</span>
+                    <span><i class="fa fa-folder-o mr-2"></i>旅行见闻</span>
+                </div>
+                
+                <div class="prose max-w-none">
+                    <p class="text-lg mb-6">
+                        周末去了附近的一个古镇，青石板路、古老的建筑和潺潺的溪流，仿佛时光在这里放慢了脚步。我穿梭在巷弄之间，感受着历史的沉淀和生活的宁静。
+                    </p>
+                    
+                    <p class="mb-6">
+                        清晨的古镇格外宁静，空气中弥漫着淡淡的茶香。我沿着河边散步，看着当地居民在河边洗衣、聊天，感受着他们悠闲的生活节奏。河水清澈见底，鱼儿在水中自由自在地游弋，偶尔有几只鸭子划过水面，泛起一圈圈涟漪。
+                    </p>
+                    
+                    <p class="mb-6">
+                        古镇的建筑大多是明清时期的风格，飞檐斗拱，雕梁画栋，尽显古朴典雅。我走进一家古老的庙宇，里面供奉着当地的神明。香火缭绕，钟声悠扬，让人感到心灵的宁静。在庙宇的角落里，有几位老人正在下棋，他们专注的神情让人忘记了时间的流逝。
+                    </p>
+                    
+                    <p class="mb-6">
+                        中午在一家小餐馆品尝了当地的特色美食，清蒸鱼、红烧肉和野菜，每一道菜都充满了浓浓的乡土气息。餐馆的老板娘热情好客，一边为我们上菜，一边和我们聊天，讲述着古镇的故事和传说。
+                    </p>
+                    
+                    <p class="mb-6">
+                        下午我走进了一条小巷，里面有许多手工艺品店。我逛了一家陶艺店，看着店主熟练地制作着陶器，不禁为之惊叹。我还买了一件小工艺品作为纪念，希望能把这份美好的回忆带回家。
+                    </p>
+                    
+                    <p>
+                        夕阳西下，我站在古镇的桥上，看着余晖洒在河面上，波光粼粼。远处的山峦笼罩在一片暮色中，仿佛一幅美丽的水墨画。此时的古镇，更加显得宁静而迷人。
+                    </p>
+                    
+                    <p class="mt-6">
+                        这次古镇之行，让我暂时远离了城市的喧嚣和繁忙，感受到了一种别样的生活方式。我想，这就是旅行的意义吧，它让我们看到不同的风景，体验不同的文化，从而丰富我们的人生阅历。
+                    </p>
+                </div>
+                
+                <!-- 文章标签 -->
+                <div class="mt-8 pt-6 border-t border-gray-100">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">旅行</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">古镇</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">生活</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <!-- 相关文章 -->
+        <section class="mt-12">
+            <h2 class="text-2xl font-bold text-neutral mb-6">相关文章</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4">
+                <a href="article1.html" class="flex group">
+                    <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                        <img src="https://picsum.photos/seed/life1/200/200" alt="生活中的小确幸" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="font-semibold text-neutral group-hover:text-primary transition-colors">生活中的小确幸</h3>
+                        <p class="text-sm text-gray-500 mt-1">生活中总有些微小而确实的幸福，它们就像散落的星星...</p>
+                    </div>
+                </a>
+                <a href="article3.html" class="flex group">
+                    <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                        <img src="https://picsum.photos/seed/book1/200/200" alt="读书心得" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="font-semibold text-neutral group-hover:text-primary transition-colors">《活着》读后感</h3>
+                        <p class="text-sm text-gray-500 mt-1">最近读完了余华的《活着》，被福贵的一生所震撼。在苦难面前...</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-neutral text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-2">妖魔鬼怪快离开</h2>
+                    <p class="text-gray-400">分享生活，留住美好</p>
+                </div>
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">首页</a>
+                    <a href="article1.html" class="text-gray-400 hover:text-white transition-colors">生活点滴</a>
+                    <a href="article2.html" class="text-gray-400 hover:text-white transition-colors">旅行见闻</a>
+                    <a href="article3.html" class="text-gray-400 hover:text-white transition-colors">读书笔记</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 妖魔鬼怪快离开 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
+    
